@@ -1,5 +1,6 @@
 import sys
 
+from PyQt5 import QtGui
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -88,6 +89,9 @@ class Ui_MainWindow(object):
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(21, 237, 135, 16))
         self.label_2.setObjectName("label_2")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(280, 400, 350, 16))
+        self.label.setObjectName("label")
         self.textBrowser = QtWidgets.QTextBrowser(self.centralwidget)
         self.textBrowser.setGeometry(QtCore.QRect(21, 260, 219, 170))
         self.textBrowser.setObjectName("textBrowser")
@@ -131,6 +135,7 @@ class Ui_MainWindow(object):
         self.label_3.setText(_translate("MainWindow", "Подходящие формулы:"))
         self.pushButton_23.setText(_translate("MainWindow", "Поиск"))
         self.label_2.setText(_translate("MainWindow", "Возможные величины:"))
+        self.label.setText(_translate("MainWindow", ""))
         self.textBrowser.setHtml(_translate("MainWindow",
                                             "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
                                             "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -148,7 +153,7 @@ class MyWidget(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.pushButton_23.clicked.connect(self.run)
 
-    def run(self):
+    def run(self, form=None):
         slo = {"скорость": "V", "начальная скорость": "V₀", "путь": "s", "время": "t", "координата": "x",
                "начальная координата": "x₀", "ускорение": "a", "сила": "F", "масса": "m", "радиус": "R",
                "гравитационная": "G", "импульс": "p", "период": "T", "длина волны": "λ", "расстояние между т.": "R",
@@ -156,11 +161,82 @@ class MyWidget(QMainWindow, Ui_MainWindow):
                "удлинение тела": "x", "вес": "P", "давление": "p", "площадь": "S", "сила тока": "I",
                "электри. заряд": "q", "напряжение": "U",
                "работа": "A", "сопротивление": "R", "длина": "l", "удельное сопрот.": "p"}
-        puB1 = ["расстояние", "скорость", "время"]
         lis = self.textEdit.toPlainText().splitlines()
-        ydit = self.studentAdmissionQGridLayout.findChildren(QtWidgets)
-        for myQLineEdit in ydit:
-            self.textEdit.setText(myQLineEdit)
+        li = []
+        for i in lis:
+            if i not in slo:
+                self.label.setText("Ошибка: такая величина не найдена в листе")
+                break
+            else:
+                self.label.setText("")
+            li.append(slo[i])
+        self.pushButton.show()
+        self.pushButton_2.show()
+        self.pushButton_3.show()
+        self.pushButton_4.show()
+        self.pushButton_5.show()
+        self.pushButton_6.show()
+        self.pushButton_7.show()
+        self.pushButton_8.show()
+        self.pushButton_9.show()
+        self.pushButton_10.show()
+        self.pushButton_11.show()
+        self.pushButton_12.show()
+        self.pushButton_13.show()
+        self.pushButton_14.show()
+        self.pushButton_15.show()
+        self.pushButton_16.show()
+        self.pushButton_17.show()
+        self.pushButton_18.show()
+        self.pushButton_19.show()
+        self.pushButton_20.show()
+        self.pushButton_21.show()
+        self.pushButton_22.show()
+        for j in li:
+            if j not in self.pushButton.text():
+                self.pushButton.hide()
+            if j not in self.pushButton_2.text():
+                self.pushButton_2.hide()
+            if j not in self.pushButton_3.text():
+                self.pushButton_3.hide()
+            if j not in self.pushButton_4.text():
+                self.pushButton_4.hide()
+            if j not in self.pushButton_5.text():
+                self.pushButton_5.hide()
+            if j not in self.pushButton_6.text():
+                self.pushButton_6.hide()
+            if j not in self.pushButton_7.text():
+                self.pushButton_7.hide()
+            if j not in self.pushButton_8.text():
+                self.pushButton_8.hide()
+            if j not in self.pushButton_9.text():
+                self.pushButton_9.hide()
+            if j not in self.pushButton_10.text():
+                self.pushButton_10.hide()
+            if j not in self.pushButton_11.text():
+                self.pushButton_11.hide()
+            if j not in self.pushButton_12.text():
+                self.pushButton_12.hide()
+            if j not in self.pushButton_13.text():
+                self.pushButton_13.hide()
+            if j not in self.pushButton_14.text():
+                self.pushButton_14.hide()
+            if j not in self.pushButton_15.text():
+                self.pushButton_15.hide()
+            if j not in self.pushButton_16.text():
+                self.pushButton_16.hide()
+            if j not in self.pushButton_17.text():
+                self.pushButton_17.hide()
+            if j not in self.pushButton_18.text():
+                self.pushButton_18.hide()
+            if j not in self.pushButton_19.text():
+                self.pushButton_19.hide()
+            if j not in self.pushButton_20.text():
+                self.pushButton_20.hide()
+            if j not in self.pushButton_21.text():
+                self.pushButton_21.hide()
+            if j not in self.pushButton_22.text():
+                self.pushButton_22.hide()
 
 
 if __name__ == '__main__':
@@ -168,3 +244,4 @@ if __name__ == '__main__':
     ex = MyWidget()
     ex.show()
     sys.exit(app.exec_())
+
