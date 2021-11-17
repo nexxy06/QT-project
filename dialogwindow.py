@@ -30,10 +30,10 @@ class Ui_Dialog(object):
         self.label_4.setGeometry(QtCore.QRect(30, 200, 31, 21))
         self.label_4.setObjectName("label_4")
         self.label_5 = QtWidgets.QLabel(Dialog)
-        self.label_5.setGeometry(QtCore.QRect(140, 240, 41, 21))
+        self.label_5.setGeometry(QtCore.QRect(140, 240, 50, 21))
         self.label_5.setObjectName("label_5")
         self.label_6 = QtWidgets.QLabel(Dialog)
-        self.label_6.setGeometry(QtCore.QRect(190, 240, 91, 21))
+        self.label_6.setGeometry(QtCore.QRect(190, 240, 300, 21))
         self.label_6.setObjectName("label_6")
         self.pushButton = QtWidgets.QPushButton(Dialog)
         self.pushButton.setGeometry(QtCore.QRect(230, 180, 93, 28))
@@ -57,9 +57,67 @@ class Ui_Dialog(object):
 class MyDialog(QtWidgets.QDialog, Ui_Dialog):
     def __init__(self, var):
         super().__init__()
+        self.var = var
         self.setupUi(self)
         self.label.setText(var)
+        self.label_2.setText(var[0])
+        self.label_3.setText(var[4])
+        self.label_4.setText(var[8])
         self.pushButton.clicked.connect(self.run1)
 
-    def run1(self, var):
-        self.label_2.setText(var)
+    def run1(self):
+        a = self.lineEdit.text()
+        b = self.lineEdit_2.text()
+        c = self.lineEdit_3.text()
+
+        def isint(s):
+            try:
+                float(s)
+                return True
+            except ValueError:
+                return False
+
+        opr1 = False
+        opr2 = False
+        opr3 = False
+        self.label_5.setText("Ответ:")
+        if isint(a) and isint(b) and not isint(c):
+            opr1 = True
+        if isint(a) and not isint(b) and isint(c):
+            opr2 = True
+        if not isint(a) and isint(b) and isint(c):
+            opr3 = True
+        otvet = "?"
+        if "/" in self.var:
+            if opr1:
+                a = float(a)
+                b = float(b)
+                otvet = "{} = {}".format(self.var[8], str(b / a))
+            elif opr2:
+                a = float(a)
+                c = float(c)
+                otvet = "{} = {}".format(self.var[4], str(a * c))
+            elif opr3:
+                b = float(b)
+                c = float(c)
+                otvet = "{} = {}".format(self.var[0], str(b / c))
+            else:
+                self.label_5.setText("Ошибка:")
+                otvet = "Неверно введены данные"
+        elif "*" in self.var:
+            if opr1:
+                a = float(a)
+                b = float(b)
+                otvet = "{} = {}".format(self.var[8], str(a / b))
+            elif opr2:
+                a = float(a)
+                c = float(c)
+                otvet = "{} = {}".format(self.var[4], str(a / c))
+            elif opr3:
+                b = float(b)
+                c = float(c)
+                otvet = "{} = {}".format(self.var[0], str(b * c))
+            else:
+                self.label_5.setText("Ошибка:")
+                otvet = "Неверно введены данные"
+        self.label_6.setText(otvet)
