@@ -4,6 +4,11 @@ from PyQt5 import QtGui
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5 import QtCore, QtGui, QtWidgets
 from dialogwindow import MyDialog
+from dialog2 import MyDialog2
+from dialog3 import MyDialog3
+from dialog4 import MyDialog4
+from dialoguni import MyDialogu
+from dialogslo import MyDialogs
 
 
 class Ui_MainWindow(object):
@@ -110,7 +115,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Формулы 7-9 класс"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Помощник по физике"))
         self.pushButton.setText(_translate("MainWindow", "s = V * t"))
         self.pushButton_2.setText(_translate("MainWindow", "s = x - x₀"))
         self.pushButton_3.setText(_translate("MainWindow", "a = (V-V₀)/t"))
@@ -120,16 +125,16 @@ class Ui_MainWindow(object):
         self.pushButton_7.setText(_translate("MainWindow", "x=x₀+V₀*t+(a*t²)/2"))
         self.pushButton_8.setText(_translate("MainWindow", "a = F / m"))
         self.pushButton_9.setText(_translate("MainWindow", "F=G*(m₁*m²)/R²"))
-        self.pushButton_10.setText(_translate("MainWindow", "a=V²/R"))
+        self.pushButton_10.setText(_translate("MainWindow", "a = V²/ R"))
         self.pushButton_11.setText(_translate("MainWindow", "p = m * V"))
         self.pushButton_12.setText(_translate("MainWindow", "T = 1 / V"))
         self.pushButton_13.setText(_translate("MainWindow", "λ = V * T"))
         self.pushButton_14.setText(_translate("MainWindow", "p = m / V"))
         self.pushButton_15.setText(_translate("MainWindow", "F = m * g"))
-        self.pushButton_16.setText(_translate("MainWindow", "F(упр) = k * x "))
+        self.pushButton_16.setText(_translate("MainWindow", "F = k * x"))
         self.pushButton_17.setText(_translate("MainWindow", "P = m * g"))
         self.pushButton_18.setText(_translate("MainWindow", "p = F / S"))
-        self.pushButton_19.setText(_translate("MainWindow", "I = q  / t"))
+        self.pushButton_19.setText(_translate("MainWindow", "I = q / t"))
         self.pushButton_20.setText(_translate("MainWindow", "U = A / q"))
         self.pushButton_21.setText(_translate("MainWindow", "I = U / R"))
         self.pushButton_22.setText(_translate("MainWindow", "R = (p*l)/S"))
@@ -138,11 +143,32 @@ class Ui_MainWindow(object):
         self.label_2.setText(_translate("MainWindow", "Возможные величины:"))
         self.label.setText(_translate("MainWindow", ""))
         self.textBrowser.setHtml(_translate("MainWindow",
-                                            "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                            "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                                            "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\""
+                                            " \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+                                            "<html><head><meta name=\"qrichtext\" content=\"1\" "
+                                            "/><style type=\"text/css\">\n"
                                             "p, li { white-space: pre-wrap; }\n"
-                                            "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
-                                            "<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#2b2b2b;\"><span style=\" font-family:\'JetBrains Mono,monospace\'; font-size:8pt; color:#a9b7c6; background-color:#2b2b2b;\">скорость V</span><span style=\" font-family:\'JetBrains Mono,monospace\'; font-size:8pt; color:#a9b7c6;\"><br />начальная скорость V₀<br />путь s<br />время t<br />координата x<br />начальная координата x₀<br />ускорение a<br />сила F<br />масса m<br />радиус R<br />гравитационная G<br />импульс p<br />период T<br />длина волны λ<br />расстояние между телами R<br />плотность p<br />объем V<br />ускорение свободного падения g<br />жёсткость k<br />удлинение тела x<br />вес P<br />давление p<br />площадь S<br />расстояние s<br />сила тока I<br />электрический заряд q<br />напряжение U<br />работа A<br />сопротивление R<br />длина l<br />удельное сопротивление p</span></p></body></html>"))
+                                            "</style></head><body style=\" font-family:\'"
+                                            "MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400;"
+                                            " font-style:normal;\">\n"
+                                            "<p style=\" margin-top:12px; margin-bottom:12px;"
+                                            " margin-left:0px; margin-right:0px; -qt-block-indent:0;"
+                                            " text-indent:0px; background-color:#2b2b2b;"
+                                            "\"><span style=\" font-family:\'JetBrains Mono,monospace\'"
+                                            "; font-size:8pt; color:#a9b7c6; background-color:#2b2b2b;\""
+                                            ">скорость V</span><span style=\" font-family:"
+                                            "\'JetBrains Mono,monospace\'; font-size:8pt; color:#a9b7c6;"
+                                            "\"><br />начальная скорость V₀<br />путь s<br />время t<br />"
+                                            "координата x<br />начальная координата x₀<br />"
+                                            "ускорение a<br />сила F<br />масса m<br />радиус R<br />"
+                                            "гравитационная G<br />импульс p<br />период T<br />"
+                                            "длина волны λ<br />расстояние между телами R<br />"
+                                            "плотность p<br />объем V<br />ускорение свободного падения g<br />"
+                                            "жёсткость k<br />удлинение тела x<br />вес P<br />давление p<br />"
+                                            "площадь S<br />расстояние s<br />сила тока I<br />"
+                                            "электрический заряд q<br />напряжение U<br />работа A<br />"
+                                            "сопротивление R<br />длина l<br />"
+                                            "удельное сопротивление p</span></p></body></html>"))
 
 
 # Наследуемся от виджета из PyQt5.QtWidgets и от класса с интерфейсом
@@ -155,7 +181,6 @@ class MyWidget(QMainWindow, Ui_MainWindow):
         self.pushButton_23.clicked.connect(self.run)
         self.pushButton.clicked.connect(self.puB)
         self.pushButton_8.clicked.connect(self.puB)
-        self.pushButton_10.clicked.connect(self.puB)
         self.pushButton_11.clicked.connect(self.puB)
         self.pushButton_13.clicked.connect(self.puB)
         self.pushButton_14.clicked.connect(self.puB)
@@ -167,6 +192,19 @@ class MyWidget(QMainWindow, Ui_MainWindow):
         self.pushButton_20.clicked.connect(self.puB)
         self.pushButton_21.clicked.connect(self.puB)
 
+        self.pushButton_10.clicked.connect(self.puB2)
+        self.pushButton_2.clicked.connect(self.puB3)
+        self.pushButton_12.clicked.connect(self.puB4)
+
+        self.pushButton_22.clicked.connect(self.puBu)
+        self.pushButton_6.clicked.connect(self.puBu)
+        self.pushButton_4.clicked.connect(self.puBu)
+        self.pushButton_3.clicked.connect(self.puBu)
+        self.pushButton_5.clicked.connect(self.puBu)
+
+        self.pushButton_7.clicked.connect(self.puBs)
+        self.pushButton_9.clicked.connect(self.puBs)
+
     def run(self):
         slo = {"скорость": "V", "начальная скорость": "V₀", "путь": "s", "время": "t", "координата": "x",
                "начальная координата": "x₀", "ускорение": "a", "сила": "F", "масса": "m", "радиус": "R",
@@ -174,7 +212,7 @@ class MyWidget(QMainWindow, Ui_MainWindow):
                "плотность": "p", "объем": "V", "ускор. свободного падения": "g", "жёсткость": "k",
                "удлинение тела": "x", "вес": "P", "давление": "p", "площадь": "S", "сила тока": "I",
                "электри. заряд": "q", "напряжение": "U",
-               "работа": "A", "сопротивление": "R", "длина": "l", "удельное сопрот.": "p"}
+               "работа": "A", "сопротивление": "R", "длина": "l", "удельное сопротивление": "p"}
         lis = self.textEdit.toPlainText().splitlines()
         li = []
         for i in lis:
@@ -255,6 +293,26 @@ class MyWidget(QMainWindow, Ui_MainWindow):
     def puB(self):
         self.dialog1 = MyDialog(self.sender().text())
         self.dialog1.show()
+
+    def puB2(self):
+        self.dialog2 = MyDialog2(self.sender().text())
+        self.dialog2.show()
+
+    def puB3(self):
+        self.dialog3 = MyDialog3(self.sender().text())
+        self.dialog3.show()
+
+    def puB4(self):
+        self.dialog4 = MyDialog4(self.sender().text())
+        self.dialog4.show()
+
+    def puBu(self):
+        self.dialogu = MyDialogu(self.sender().text())
+        self.dialogu.show()
+
+    def puBs(self):
+        self.dialogs = MyDialogs(self.sender().text())
+        self.dialogs.show()
 
 
 if __name__ == '__main__':
